@@ -48,3 +48,13 @@ app.post("/api/chat", async (req, res) => {
             })
         )
     );      
+
+    if(!response.ok) {
+        const errorDara = await response.text();
+
+        console.error("OpenRoueter Error:", errorData);
+
+        return res.status(response.status).json({
+            error: errorData
+        });
+    }
