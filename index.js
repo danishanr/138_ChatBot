@@ -35,4 +35,16 @@ app.post("/api/chat", async (req, res) => {
                 OPENROUTER_API_KEY}`
             }
         }
-    )    
+    )
+    app.post ("api/chat", async (req,res) => {
+        const response = await fetch(
+
+            body: JSON.stringify({
+                model: "inclusionai/ling-3.2-flash:free",
+                messages: messages,
+                temperature: 0.7,
+                max_tokens: 1000,
+                stream: true
+            })
+        )
+    );      
